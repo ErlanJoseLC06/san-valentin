@@ -76,29 +76,6 @@
             background-color: #fb8c00;
         }
 
-        /* Estilo de la imagen de la pareja con animación */
-        .imagenes {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-
-        .foto-pareja {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            animation: floatImage 6s infinite ease-in-out;
-        }
-
-        @keyframes floatImage {
-            0% { transform: translateY(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-20px); opacity: 0; }
-        }
-
         /* Mejorar la apariencia en móviles */
         @media (max-width: 600px) {
             .foto-pareja {
@@ -148,12 +125,6 @@
         <button class="btn" onclick="mostrarMensaje()">Sí, quiero ❤️</button>
         <button class="btn btn-no" id="btnNo" onclick="moverBoton()">No, no quiero</button>
         <button class="btn btn-think" id="btnThink" onclick="moverBotonThink()">Hmm, déjame pensarlo</button>
-        
-        <!-- Fotos de la pareja -->
-        <div class="imagenes">
-            <img src="img/nanu.jpeg" alt="Foto 1" class="foto-pareja">
-            <img src="img/nanu2.jpeg" alt="Foto 2" class="foto-pareja">
-        </div>
     </div>
     
     <script>
