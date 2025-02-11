@@ -76,11 +76,71 @@
             background-color: #fb8c00;
         }
 
-        /* Mejorar la apariencia en móviles */
-        @media (max-width: 600px) {
-            .foto-pareja {
-                width: 120px;
-                height: 120px;
+        /* Estilos mejorados para la tarjeta */
+        .tarjeta {
+            width: 90%;
+            max-width: 400px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            display: none;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .tarjeta p {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d63384;
+        }
+
+        .tarjeta .contenido {
+            font-size: 16px;
+            color: #333;
+            text-align: justify;
+            margin-top: 10px;
+        }
+
+        .btn-cerrar {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: #d63384;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-cerrar:hover {
+            background-color: #d63384;
+        }
+
+        /* Mostrar tarjeta */
+        .mostrar {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        /* Responsive para iPhone 13 */
+        @media (max-width: 430px) {
+            .tarjeta {
+                width: 90%;
+                max-width: 320px;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 12px 25px;
             }
         }
         
@@ -109,6 +169,7 @@
                 opacity: 0;
             }
         }
+        
 
     </style>
 </head>
@@ -125,6 +186,31 @@
         <button class="btn" onclick="mostrarMensaje()">Sí, quiero ❤️</button>
         <button class="btn btn-no" id="btnNo" onclick="moverBoton()">No, no quiero</button>
         <button class="btn btn-think" id="btnThink" onclick="moverBotonThink()">Hmm, déjame pensarlo</button>
+
+        <div class="container">
+            <button class="btn" onclick="mostrarTarjeta()">Abrir Tarjeta 💌</button>
+        </div>
+    
+        <!-- Tarjeta Desplegable -->
+        <div class="tarjeta" id="tarjeta">
+            <img src="img/nanu2.jpeg" alt="Foto de pareja">
+            <p>Mi amor, eres lo mejor que me ha pasado. Gracias por hacerme tan feliz. ❤️</p>
+            <div class="contenido">
+                Quiero contarte un poco de nuestra historia, de cómo llegaste a mi vida y la transformaste por completo.  
+
+                Te conocí a través de mi ex, eras su amiga… y sé que puede sonar extraño, pero poco a poco me fui enamorando de ti. Me cautivaste con la forma en que me demostraste lo que significa realmente una pareja, cómo alguien puede darlo todo por el otro. Desde el primer brownie que me hiciste hasta esas noches en las que nos amanecimos juntos, cada momento a tu lado ha sido especial.  
+
+                Nunca imaginé lo hermoso que sería compartir mi vida contigo, despertar y saber que estás ahí. Eres la primera persona con quien he vivido tantas cosas en tan poco tiempo, y aún así, cada instante se siente único. Mi mamá te quiere, mi familia, mis primos y mis tíos te estiman y preguntan por ti. Me sorprende y me llena de felicidad saber que no solo me enamoré de ti, sino que todos ven lo maravillosa que eres.  
+
+                No tengo duda de que haría lo que fuera por verte bien y feliz. Todo lo que hago, cada esfuerzo, es para seguir conquistándote, para demostrarte cuánto significas para mí y lo importante que eres en mi vida. Y así como quiero seguir enamorándote a ti, también quiero seguir ganándome el cariño de tu familia.  
+
+                Te imagino a mi lado en el futuro, en cada etapa de mi vida. Solo te pido que no me falles, que no dejes de quererme, que sigamos compartiendo todo, sin miedos ni dudas. Por este 14 y por muchos más… te amo como nunca antes he amado a alguien, y no sé cómo explicarte este cariño tan inmenso que siento por ti.  
+            </div>
+
+            <p>Gracias por todo, mi loquita. ❤️</p>
+
+            <button class="btn-cerrar" onclick="cerrarTarjeta()">Cerrar</button>
+        </div>
     </div>
     
     <script>
@@ -135,7 +221,7 @@
 }
 
 function reproducirMusica() {
-    let audio = new Audio("img/");
+    let audio = new Audio("img");
     audio.loop = true;
     audio.play();
 }
@@ -197,6 +283,16 @@ function reproducirMusica() {
             }
         }
         crearCorazones();
+
+        // Función para abrir la tarjeta
+        function mostrarTarjeta() {
+            document.getElementById("tarjeta").style.display = "block";
+        }
+
+        // Función para cerrar la tarjeta
+        function cerrarTarjeta() {
+            document.getElementById("tarjeta").style.display = "none";
+        }
     </script>
 </body>
 </html>
